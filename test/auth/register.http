@@ -1,0 +1,23 @@
+### Register
+POST http://localhost:3052/api/auth/register
+content-type: application/json
+
+{
+  "name": "user2",
+  "email": "user2@gmail.com",
+  "password": "password"
+}
+
+### Register
+POST http://localhost:3052/api/auth/register
+content-type: application/json
+
+{
+  "name": "user4",
+  "email": "user4@gmail.com",
+  "password": "password"
+}
+
+
+### Login
+POST http://localhost:3052/api/auth/login
