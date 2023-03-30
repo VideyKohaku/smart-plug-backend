@@ -20,11 +20,7 @@ const db = require('./database/db.init');
 db.connect();
 
 // routes
-app.use('/api/auth', require('./routes/auth.route'));
-
-app.get('/', (req, res, next) => {
-  res.json({ message: 'Welcome to SmartPlug' });
-});
+app.use('/', require('./routes'));
 
 app.use((req, res, next) => {
   const error = new Error('Not Found');
