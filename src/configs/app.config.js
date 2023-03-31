@@ -9,6 +9,10 @@ const dev = {
     user: process.env.DEV_DB_USER || 'root',
     password: process.env.DEV_DB_PASSWORD || 'password',
   },
+  jwt: {
+    secret_key: process.env.DEV_JWT_SECRET_KEY || 'secret_key',
+    expires_in: process.env.DEV_JWT_EXPIRES_IN || '7d'
+  },
   adafruit: {
     topic_prefix: process.env.DEV_ADAFRUIT_TOPIC_PREFIX || 'datdev2409/feeds/'
   }
@@ -24,6 +28,10 @@ const pro = {
     name: process.env.PRO_DB_NAME || 'test',
     user: process.env.PRO_DB_USER || 'root',
     password: process.env.PRO_DB_PASSWORD || 'password',
+  },
+  jwt: {
+    secret_key: process.env.PRO_JWT_SECRET_KEY || 'secret_key',
+    expires_in: process.env.PRO_JWT_EXPIRES_IN || '7d'
   },
   adafruit: {
     topic_prefix: process.env.PRO_ADAFRUIT_TOPIC_PREFIX || 'datdev2409/feeds/'
