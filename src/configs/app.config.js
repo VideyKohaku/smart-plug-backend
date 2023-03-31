@@ -9,6 +9,9 @@ const dev = {
     user: process.env.DEV_DB_USER || 'root',
     password: process.env.DEV_DB_PASSWORD || 'password',
   },
+  adafruit: {
+    topic_prefix: process.env.DEV_ADAFRUIT_TOPIC_PREFIX || 'datdev2409/feeds/'
+  }
 };
 
 const pro = {
@@ -22,6 +25,9 @@ const pro = {
     user: process.env.PRO_DB_USER || 'root',
     password: process.env.PRO_DB_PASSWORD || 'password',
   },
+  adafruit: {
+    topic_prefix: process.env.PRO_ADAFRUIT_TOPIC_PREFIX || 'datdev2409/feeds/'
+  }
 };
 
 const config = { dev, pro };

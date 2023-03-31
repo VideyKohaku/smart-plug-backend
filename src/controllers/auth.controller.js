@@ -1,4 +1,4 @@
-const { CREATED } = require('../core/success.response');
+const { CREATED, DELETED } = require('../core/success.response');
 const AuthService = require('../services/auth.service');
 
 class AuthController {
@@ -10,7 +10,6 @@ class AuthController {
   }
 
   static login(req, res) {
-    res.json({ message: 'Login route' });
   }
 }
 

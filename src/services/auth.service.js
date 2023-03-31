@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const { BadRequestError } = require('../core/error.reponse');
 const User = require('../models/user.model');
 
+
 class AuthService {
   static async register({name, email, password}) {
     // Check user exists

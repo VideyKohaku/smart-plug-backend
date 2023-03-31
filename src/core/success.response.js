@@ -28,7 +28,14 @@ class CREATED extends SuccessReponse {
   }
 }
 
+class DELETED extends SuccessReponse {
+  constructor({message, metadata}) {
+    super(message, StatusCodes.NO_CONTENT, ReasonPhrases.NO_CONTENT, metadata);
+  }
+}
+
 module.exports = {
   OK,
   CREATED,
+  DELETED
 };
