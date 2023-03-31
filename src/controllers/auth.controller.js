@@ -1,4 +1,4 @@
-const { CREATED, DELETED } = require('../core/success.response');
+const { CREATED, DELETED, OK } = require('../core/success.response');
 const AuthService = require('../services/auth.service');
 
 class AuthController {
@@ -9,7 +9,11 @@ class AuthController {
     }).send(res);
   }
 
-  static login(req, res) {
+  static async login(req, res) {
+    new OK({
+      message: 'Login successfully',
+      metadata: await AuthService.login(req.body),
+    }).send(res);
   }
 }
 
