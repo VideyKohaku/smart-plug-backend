@@ -1,0 +1,9 @@
+### add device
+POST http://localhost:3052/api/devices
+content-type: application/json
+
+{
+  "name": "light 1",
+  "user": "user4@gmail.com",
+  "state": false
+}

@@ -21,7 +21,7 @@ const deviceSchema = new mongoose.Schema({
 });
 
 deviceSchema.virtual('topic').get(function () {
-  return configs.adafruit.topic_prefix + this.name;
+  return configs.adafruit.topic_prefix + this.user + this.name;
 });
 //Export the model
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('Device', deviceSchema);
