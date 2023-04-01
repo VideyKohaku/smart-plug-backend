@@ -29,6 +29,9 @@ app.use((req, res, next) => {
 });
 
 app.use((error, req, res, next) => {
+  if (process.env.NODE_ENV == 'dev') {
+    console.log(error);
+  }
   const statusCode = error.statusCode || 500;
   return res.status(statusCode).json({
     message: error.message || 'Internal Server Error',

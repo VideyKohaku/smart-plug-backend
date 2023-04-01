@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 const { BadRequestError, NotFoundError } = require('../core/error.reponse');
 const User = require('../models/user.model');
-const { createUserToken } = require('../utils/token');
+const { createUserToken } = require('../utils/token.util');
 
 class AuthService {
   static async register({ name, email, password }) {
@@ -12,9 +12,9 @@ class AuthService {
     }
 
     const passwordHash = await bcrypt.hash(password, 10);
-    await User.create({ name, email, password: passwordHash });
+    const newUser = await User.create({ name, email, password: passwordHash });
 
-    const userToken = createUserToken({ name, email });
+    const userToken = createUserToken({ id: newUser.id, name, email });
     return { name, email, token: userToken };
   }
 
@@ -29,9 +29,9 @@ class AuthService {
       throw new BadRequestError('Wrong email or password');
     }
 
-    const { name } = user;
-    const userToken = createUserToken({ name, email });
-    return { name, email, token: userToken }
+    const { name, id } = user;
+    const userToken = createUserToken({ id, name, email });
+    return { name, email, token: userToken };
   }
 }
 
