@@ -9,6 +9,14 @@ class DeviceController {
     }).send(res);
   }
 
+  static async getAllDevices(req, res){
+    new OK({
+      message: 'Devices',
+      metadata: await DeviceService.getAllDevices()
+    }).send(res);
+  }
+
+
   static async getDevice(req, res){
     new OK({
       message: 'Device Found',

@@ -8,6 +8,9 @@ content-type: application/json
   "state": true
 }
 
+### get all devices
+GET http://localhost:3052/api/devices
+
 ### get device 1
 GET http://localhost:3052/api/devices/6427ffc40934446e9b370cf1
 

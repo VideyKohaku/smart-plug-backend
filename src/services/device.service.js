@@ -20,6 +20,14 @@ class DeviceService {
         return newDevice;
     }
 
+    static async getAllDevices() {
+        const devices = await Device.find({})
+        return {
+            count: devices.length,
+            devices
+        }
+    }
+
     static async getDevice({deviceId}){
         // check device exist
         const device = await Device.findOne({_id: deviceId}).lean();
