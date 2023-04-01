@@ -4,6 +4,16 @@ content-type: application/json
 
 {
   "name": "light 2",
-  "user": "6425576ae0a54b863050f453",
+  "user": "6427fe93dab74de19ff58d6a",
   "state": true
 }
+
+### get device 1
+GET http://localhost:3052/api/devices/6427ffc40934446e9b370cf1
+
+### get device 2
+GET http://localhost:3052/api/devices/6428028f8341127c6d280f7e
+
+### delete device
+DELETE  http://localhost:3052/api/devices/64282477fa7781f1d70af9bd
+

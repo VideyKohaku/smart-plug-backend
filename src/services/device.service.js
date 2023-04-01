@@ -4,20 +4,40 @@ const { BadRequestError } = require("../core/error.reponse");
 
 class DeviceService {
     static async addDevice({ name, user, state }) {
-        // check user not found
-        const isUserExist = await User.findOne({user}).lean();
+        // check user not found - temporally
+        const isUserExist = await User.findOne({_id:user}).lean();
         if(!isUserExist){
-            throw new BadRequestError('User Not Found')
+            throw new BadRequestError('User Not Found');
         }
 
         // check device name duplicated
         const device = await Device.findOne({name, user}).lean();
         if(device){
-            throw new BadRequestError('Name is already existed')
+            throw new BadRequestError('Name is already existed');
         }
 
-        const newDevice = await Device.create({name, user, state})
-        return newDevice
+        const newDevice = await Device.create({name, user, state});
+        return newDevice;
+    }
+
+    static async getDevice({deviceId}){
+        // check device exist
+        const device = await Device.findOne({_id: deviceId}).lean();
+        if(!device){
+            throw new BadRequestError('Device Not Found');
+        }
+
+        return device;
+    }
+
+    static async removeDevice({deviceId}){
+        // check device name exist
+        const isDeviceExist = await Device.findOne({_id: deviceId}).lean();
+        if(!isDeviceExist){
+            throw new BadRequestError('Device Not Found');
+        }
+
+        return await Device.deleteOne({_id: deviceId});
     }
 }
 
