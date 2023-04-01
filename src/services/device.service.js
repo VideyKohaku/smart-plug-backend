@@ -30,6 +30,22 @@ class DeviceService {
         return device;
     }
 
+    static async updateDevice({deviceId}, update){
+        // check device exist
+        const device = await Device.findOne({_id: deviceId}).lean();
+        if(!device){
+            throw new BadRequestError('Device Not Found');
+        }
+
+        const option = {
+            new: true,
+            lean: true
+        }
+
+        const newDevice = Device.findByIdAndUpdate(deviceId, update, option);
+        return newDevice;
+    }
+
     static async removeDevice({deviceId}){
         // check device name exist
         const isDeviceExist = await Device.findOne({_id: deviceId}).lean();

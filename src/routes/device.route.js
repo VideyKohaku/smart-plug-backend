@@ -8,6 +8,7 @@ router.post('/', asyncHandler(DeviceController.addDevice));
 //     console.log(req.params)
 // });
 router.get('/:deviceId', asyncHandler(DeviceController.getDevice));
+router.patch('/:deviceId', asyncHandler(DeviceController.updateDevice));
 router.delete('/:deviceId', asyncHandler(DeviceController.removeDevice));
 
 module.exports = router;

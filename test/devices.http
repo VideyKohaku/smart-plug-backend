@@ -3,7 +3,7 @@ POST http://localhost:3052/api/devices
 content-type: application/json
 
 {
-  "name": "light 2",
+  "name": "light 3",
   "user": "6427fe93dab74de19ff58d6a",
   "state": true
 }
@@ -13,6 +13,15 @@ GET http://localhost:3052/api/devices/6427ffc40934446e9b370cf1
 
 ### get device 2
 GET http://localhost:3052/api/devices/6428028f8341127c6d280f7e
+
+### update device
+PATCH http://localhost:3052/api/devices/64282e65df56c9885a2d6951
+content-type: application/json
+
+{
+  "name": "fan 3",
+  "state": false
+}
 
 ### delete device
 DELETE  http://localhost:3052/api/devices/64282477fa7781f1d70af9bd
