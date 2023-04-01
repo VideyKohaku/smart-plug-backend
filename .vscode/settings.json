@@ -1,0 +1,13 @@
+{
+  "rest-client.environmentVariables": {
+    "$shared": {
+      "host1": "http://localhost:3052/api"
+    },
+    "local": {
+      "host": "http://localhost:3052/api"
+    },
+    "production": {
+      "host": "http://dat2409.online/api"
+    }
+  }
+}
