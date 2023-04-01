@@ -9,8 +9,6 @@ const deviceSchema = new mongoose.Schema(
     name: {
       type: String,
       required: true,
-      unique: true,
-      index: true,
     },
     state: {
       type: Boolean,
@@ -30,7 +28,7 @@ const deviceSchema = new mongoose.Schema(
 );
 
 deviceSchema.virtual('topic').get(function () {
-  return configs.adafruit.topic_prefix + this.name;
+  return configs.adafruit.topic_prefix + this.user + this.name;
 });
 
 //Export the model
