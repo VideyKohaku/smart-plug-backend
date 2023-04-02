@@ -1,0 +1,29 @@
+@port = 3040
+
+### Register
+# @name register
+POST {{host}}/auth/register
+content-type: application/json
+
+{
+  "name": "user2",
+  "email": "user2@gmail.com",
+  "password": "password"
+}
+
+### Login
+# @name login
+# @prompt email
+# @prompt password
+POST {{host}}/auth/login
+content-type: application/json
+
+{
+  "email": "{{email}}",
+  "password": "{{password}}"
+}
+
+### Test auth token
+@authToken = {{login.response.body.metadata.token}}
+GET {{host}}/auth/test
+Authorization: Bearer {{authToken}}
