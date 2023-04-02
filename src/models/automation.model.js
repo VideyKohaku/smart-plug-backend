@@ -1,10 +1,10 @@
 const mongoose = require('mongoose'); // Erase if already required
 
 // Declare the Schema of the Mongo model
-const COLLECTION_NAME = 'scenarios';
-const DOCUMENT_NAME = 'Scenario';
+const COLLECTION_NAME = 'automations';
+const DOCUMENT_NAME = 'Automation';
 
-const scenarioSchema = new mongoose.Schema(
+const automation = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -20,7 +20,7 @@ const scenarioSchema = new mongoose.Schema(
         device: {
           type: mongoose.Schema.Types.ObjectId,
           ref: 'Device',
-          required: true
+          required: true,
         },
         state: {
           type: Boolean,
@@ -28,6 +28,21 @@ const scenarioSchema = new mongoose.Schema(
         },
       },
     ],
+    time: {
+      type: String,
+      required: true,
+      default: '12:00',
+    },
+    repeats: {
+      type: [
+        {
+          type: Number,
+          required: true,
+          enum: [1, 2, 3, 4, 5, 6, 7],
+        },
+      ],
+      default: [],
+    },
   },
   {
     timestamps: true,
@@ -36,4 +51,4 @@ const scenarioSchema = new mongoose.Schema(
 );
 
 //Export the model
-module.exports = mongoose.model(DOCUMENT_NAME, scenarioSchema);
+module.exports = mongoose.model(DOCUMENT_NAME, automation);
