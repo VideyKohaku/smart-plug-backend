@@ -33,7 +33,7 @@ class DeviceController {
 
   static async removeDevice(req, res){
     new DELETED({
-      message: 'Remove device successfully',
+      message: 'Device Removed',
       metadata: await DeviceService.removeDevice(req.params),
     }).send(res);
   }

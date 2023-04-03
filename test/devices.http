@@ -1,3 +1,5 @@
+# @port = 3040
+
 ### add device
 POST http://localhost:3052/api/devices
 content-type: application/json
@@ -27,5 +29,5 @@ content-type: application/json
 }
 
 ### delete device
-DELETE  http://localhost:3052/api/devices/64282477fa7781f1d70af9bd
+DELETE  http://localhost:3052/api/devices/642802b48341127c6d280f82
 
