@@ -3,18 +3,18 @@ POST http://localhost:3052/api/scenarios
 content-type: application/json
 
 {
-  "name": "Bed room 1",
-  "user": "6427fe93dab74de19ff58d6a",
+  "name": "Bed room 2",
+  "user": "6424098a5f99781de15141eb",
   "actions": [
     {
-      "device": "6427fe93dab74de19ff58d6a",
+      "device": "642839b9ade25844601f4ee2",
       "state": true
     }
   ] 
 }
 
 ### get scenario
-GET http://localhost:3052/api/scenarios/642a69e9d0c4decb4e99a098
+GET http://localhost:3052/api/scenarios/642bf3be9c4f32cac0bc0395
 
 
 ### get all scenarios
@@ -22,27 +22,12 @@ GET http://localhost:3052/api/scenarios
 
 
 ### update scenario
-PATCH http://localhost:3052/api/scenarios/642a69e9d0c4decb4e99a098
+PATCH http://localhost:3052/api/scenarios/642bf335062b4943e4b731d1
 content-type: application/json
 
 {
-  "name": "Go out",
-  "user": "6427fe93dab74de19ff58d6a",
-  "actions": [
-    {
-      "device": "6427fe93dab74de19ff58d6a",
-      "state": true
-    },
-    {
-      "device": "64282e65df56c9885a2d6953",
-      "state": true
-    },
-    {
-      "device": "642ba1403a9e2aaceee1721f",
-      "state": false
-    }
-  ] 
+  "name": "Go out"
 }
 
 ### delete scenario
-DELETE http://localhost:3052/api/scenarios/642a689e9dbbe1548b7be5fb
+DELETE http://localhost:3052/api/scenarios/642bf3be9c4f32cac0bc0395

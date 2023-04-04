@@ -1,18 +1,21 @@
 const { BadRequestError } = require('../core/error.reponse');
 const Automation = require('../models/automation.model');
+const pickFields = require('../utils/pickFields');
 
 class AutomationService {
   static async getAllAutomations() {
     const automations = await Automation.find({});
     return {
       count: automations.length,
-      automations,
+      automations: automations.map((a) =>
+        pickFields(a, ['name', 'user', 'actions', 'id'])
+      ),
     };
   }
 
   static async getAutomation(id) {
     const automation = await Automation.findById(id);
-    console.log(automation)
+    console.log(automation);
     if (!automation) {
       throw new BadRequestError("Automation's ID not found");
     }
@@ -21,7 +24,7 @@ class AutomationService {
   }
 
   static async createAutomation({ name, user, actions, time, repeats }) {
-    console.log(name, user, actions)
+    console.log(name, user, actions);
     const automation = await Automation.create({
       name,
       user,
@@ -33,7 +36,7 @@ class AutomationService {
   }
 
   static async deleteAutomation(id) {
-    await Automation.findByIdAndDelete(id)
+    await Automation.findByIdAndDelete(id);
     return;
   }
 
@@ -45,4 +48,4 @@ class AutomationService {
   }
 }
 
-module.exports = AutomationService
+module.exports = AutomationService;
