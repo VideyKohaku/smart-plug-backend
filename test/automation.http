@@ -1,0 +1,43 @@
+@id = {{create_automation.response.body.metadata._id}}
+
+### Get all automations
+GET {{host}}/automations/
+
+
+### Get automation by ID
+GET {{host}}/automations/{{id}}
+Content-Type: application/json
+
+
+### Create automation
+# @name create_automation
+POST {{host}}/automations/
+Content-Type: application/json
+
+{
+  "name": "Automation 2",
+  "user": "64240550992000488e016f61",
+  "actions": [
+    {
+      "device": "642839b9ade25844601f4ee2",
+      "state": false
+    }
+  ],
+  "time": "12:00",
+  "repeats": [2, 4, 6]
+}
+
+
+
+### Delete automation
+DELETE {{host}}/automations/642a3511f809dce8e9771a86
+
+
+
+### Update automation
+PATCH {{host}}/automations/{{id}}
+Content-Type: application/json
+
+{
+  "name": "Updated automation"
+}
