@@ -9,11 +9,25 @@ class ScenarioController {
         }).send(res);
     }
 
+    static async getAllScenarios(req, res){
+        new OK({
+            message: "Scenarios",
+            metadata: await ScenarioService.getAllScenarios()
+        }).send(res)
+    }
+
     static async getScenario(req, res) {
         new OK({
             message: "Scenario Found",
             metadata: await ScenarioService.getScenario(req.params),
         }).send(res);
+    }
+
+    static async updateScenario(req, res){
+        new OK({
+            message: "Scenario Updated",
+            metadata: await ScenarioService.updateScenario(req.params, req.body)
+        }).send(res)
     }
 
     static async removeScenario(req, res) {

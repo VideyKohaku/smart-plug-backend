@@ -14,7 +14,35 @@ content-type: application/json
 }
 
 ### get scenario
-GET http://localhost:3052/api/scenarios/642a689e9dbbe1548b7be5fb
+GET http://localhost:3052/api/scenarios/642a69e9d0c4decb4e99a098
+
+
+### get all scenarios
+GET http://localhost:3052/api/scenarios
+
+
+### update scenario
+PATCH http://localhost:3052/api/scenarios/642a69e9d0c4decb4e99a098
+content-type: application/json
+
+{
+  "name": "Go out",
+  "user": "6427fe93dab74de19ff58d6a",
+  "actions": [
+    {
+      "device": "6427fe93dab74de19ff58d6a",
+      "state": true
+    },
+    {
+      "device": "64282e65df56c9885a2d6953",
+      "state": true
+    },
+    {
+      "device": "642ba1403a9e2aaceee1721f",
+      "state": false
+    }
+  ] 
+}
 
 ### delete scenario
 DELETE http://localhost:3052/api/scenarios/642a689e9dbbe1548b7be5fb
