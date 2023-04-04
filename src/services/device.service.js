@@ -50,7 +50,7 @@ class DeviceService {
             lean: true
         }
 
-        const newDevice = Device.findByIdAndUpdate(deviceId, update, option);
+        const newDevice = await Device.findByIdAndUpdate(deviceId, update, option);
         return newDevice;
     }
 
