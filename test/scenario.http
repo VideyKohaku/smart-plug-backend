@@ -1,0 +1,33 @@
+### add device
+POST http://localhost:3052/api/scenarios
+content-type: application/json
+
+{
+  "name": "Bed room 2",
+  "user": "6424098a5f99781de15141eb",
+  "actions": [
+    {
+      "device": "642839b9ade25844601f4ee2",
+      "state": true
+    }
+  ] 
+}
+
+### get scenario
+GET http://localhost:3052/api/scenarios/642bf3be9c4f32cac0bc0395
+
+
+### get all scenarios
+GET http://localhost:3052/api/scenarios
+
+
+### update scenario
+PATCH http://localhost:3052/api/scenarios/642bf335062b4943e4b731d1
+content-type: application/json
+
+{
+  "name": "Go out"
+}
+
+### delete scenario
+DELETE http://localhost:3052/api/scenarios/642bf3be9c4f32cac0bc0395
