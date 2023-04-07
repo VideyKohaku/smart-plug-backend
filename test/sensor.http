@@ -1,0 +1,10 @@
+### add sensor
+POST {{host}}/sensors
+content-type: application/json
+
+{
+  "name": "heat 3",
+  "user": "6427fe85dab74de19ff58d67",
+  "type_value": "analog",
+  "type_sensor": "Heat"
+}

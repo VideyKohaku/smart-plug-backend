@@ -1,4 +1,5 @@
 const mongoose = require('mongoose'); // Erase if already required
+const configs = require('../configs/app.config');
 
 // Declare the Schema of the Mongo model
 const MODEL_NAME = 'Sensor';
@@ -8,18 +9,26 @@ const sensorSchema = new mongoose.Schema(
     name: {
       type: String,
       required: true,
-      unique: true,
-      index: true,
     },
     user: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
+      ref: "User",
     },
-    type: {
+    type_value: {
       type: String,
       required: true,
-      default: 'analog',
+      enum: ["analog", "digital"],
     },
+    type_sensor: {
+      type: String,
+      require: true,
+      enum: ["Heat", "Movement", "Humidity", "Sound", "Light"]
+    },
+    value:  {
+      type: String,
+      default: "0"
+    }
   },
   {
     collection: COLLECTION_NAME,
@@ -28,4 +37,5 @@ const sensorSchema = new mongoose.Schema(
 );
 
 //Export the model
-module.exports = mongoose.model(MODEL_NAME, sensorSchema);
+const Sensor = mongoose.model(MODEL_NAME, sensorSchema);
+module.exports = Sensor

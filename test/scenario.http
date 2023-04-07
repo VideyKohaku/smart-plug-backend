@@ -3,7 +3,7 @@ POST http://localhost:3052/api/scenarios
 content-type: application/json
 
 {
-  "name": "Bed room 2",
+  "name": "Bed room 3",
   "user": "6424098a5f99781de15141eb",
   "actions": [
     {
