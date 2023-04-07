@@ -22,6 +22,10 @@ class Database {
     }
   }
 
+  async exit() {
+    mongoose.connection.close()
+  }
+
   static getInstance() {
     if (!Database.#instance) {
       Database.#instance = new Database();

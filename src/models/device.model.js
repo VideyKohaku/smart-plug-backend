@@ -1,5 +1,6 @@
 const mongoose = require('mongoose'); // Erase if already required
 const configs = require('../configs/app.config');
+const AdafruitService = require('../services/adafruit.service');
 // Declare the Schema of the Mongo model
 
 const MODEL_NAME = 'Device';
@@ -28,7 +29,7 @@ const deviceSchema = new mongoose.Schema(
 );
 
 deviceSchema.virtual('topic').get(function () {
-  return configs.adafruit.topic_prefix + this.user + this.name;
+  return `${this.user.group}.${this.name}`
 });
 
 //Export the model

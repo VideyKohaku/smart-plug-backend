@@ -1,5 +1,5 @@
 ### add device
-POST http://localhost:3052/api/scenarios
+POST {{host}}/scenarios
 content-type: application/json
 
 {
@@ -14,15 +14,15 @@ content-type: application/json
 }
 
 ### get scenario
-GET http://localhost:3052/api/scenarios/642bf3be9c4f32cac0bc0395
+GET {{host}}/scenarios/642bf3be9c4f32cac0bc0395
 
 
 ### get all scenarios
-GET http://localhost:3052/api/scenarios
+GET {{host}}/scenarios
 
 
 ### update scenario
-PATCH http://localhost:3052/api/scenarios/642bf335062b4943e4b731d1
+PATCH {{host}}/scenarios/642bf335062b4943e4b731d1
 content-type: application/json
 
 {
@@ -30,4 +30,4 @@ content-type: application/json
 }
 
 ### delete scenario
-DELETE http://localhost:3052/api/scenarios/642bf3be9c4f32cac0bc0395
+DELETE {{host}}/scenarios/642bf3be9c4f32cac0bc0395

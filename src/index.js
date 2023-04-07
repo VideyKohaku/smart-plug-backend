@@ -7,6 +7,7 @@ const app = express();
 const dotenv = require('dotenv');
 dotenv.config();
 
+require('./services/adafruit.service')
 // middlewares
 app.use(cors());
 app.use(helmet());
@@ -17,6 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // database
 const db = require('./database/db.init');
+const AdafruitService = require('./services/adafruit.service');
 db.connect();
 
 // routes
