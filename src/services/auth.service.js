@@ -15,7 +15,7 @@ class AuthService {
     const newUser = await User.create({ name, email, password: passwordHash });
 
     const userToken = createUserToken({ id: newUser.id, name, email });
-    return { id, name, email, token: userToken };
+    return { id: newUser.id, name, email, token: userToken };
   }
 
   static async login({ email, password }) {
@@ -29,10 +29,9 @@ class AuthService {
       throw new BadRequestError('Wrong email or password');
     }
 
-    const { name, id } = user;
-    console.log(id)
+    const { name, id, group } = user;
     const userToken = createUserToken({id , name, email });
-    return { id, name, email, token: userToken };
+    return { id, name, email, token: userToken, group };
   }
 }
 
