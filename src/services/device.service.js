@@ -1,8 +1,25 @@
 const User = require("../models/user.model");
 const Device = require("../models/device.model");
 const { BadRequestError } = require("../core/error.reponse");
+const pickFields = require("../utils/pickFields")
 
 class DeviceService {
+    static async _format(device) {
+        const fields = ["_id", "name", "user"];
+        return pickFields(device, fields);
+    }
+
+    static async _getDevices(query) {
+        const devices = await Device.find(query).lean();
+        return devices
+    }
+
+    static async _formatList(devices) {
+        return devices.map((device) => {
+            return DeviceService._format(device)
+        });
+    }
+
     static async addDevice({ name, user, state }) {
         // check user not found - temporally
         const isUserExist = await User.findOne({_id:user}).lean();
@@ -21,10 +38,21 @@ class DeviceService {
     }
 
     static async getAllDevices() {
-        const devices = await Device.find({})
+        const devices = await DeviceService._getDevices({});
+        const formatDevices = await Promise.all(await DeviceService._formatList(devices));
         return {
             count: devices.length,
-            devices
+            devices: formatDevices
+        }
+    }
+
+    static async getAllDevicesByUser({userId}) {
+        const devices = await DeviceService._getDevices({user: userId});
+        // console.log(devices)
+        const formatDevices = await Promise.all(await DeviceService._formatList(devices));
+        return {
+            count: devices.length,
+            devices: formatDevices
         }
     }
 
