@@ -9,6 +9,13 @@ class AutomationController {
     }).send(res);
   }
 
+  static async getAllAutomationsByUser(req, res) {
+    new OK({
+      message: 'List of automations',
+      metadata: await AutomationService.getAllAutomationsByUser(req.params),
+    }).send(res);
+  }
+
   static async getAutomation(req, res) {
     const id = req.params.id;
     console.log(id)
