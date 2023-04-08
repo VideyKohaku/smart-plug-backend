@@ -5,7 +5,8 @@ const SensorController = require('../controllers/sensor.controller');
 const router = express.Router();
 
 router.get('/', asyncHandler(UserController.getAllUsers));
-router.get('/:userID/devices', asyncHandler(SensorController.getAllSensorByUser));
+router.get('/:userId/sensors', asyncHandler(SensorController.getAllSensorByUser));
+// router.get('/:userID/sensors',(req)=>{ console.log(req.params)});
 // router.patch('/:deviceId', asyncHandler(DeviceController.updateDevice));
 // router.delete('/:deviceId', asyncHandler(DeviceController.removeDevice));
 

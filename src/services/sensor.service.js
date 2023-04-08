@@ -51,6 +51,7 @@ class SensorService{
     }
 
     static async getSensorsbyUser({userId}){
+        // console.log(userId)
         const sensors = await SensorService._getSensors({user: userId})
         const formatSensors = await Promise.all(await SensorService._formatList(sensors));
 

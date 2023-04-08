@@ -2,4 +2,4 @@
 GET {{host}}/users
 
 ### get all users
-# GET {{host}}
+GET {{host}}/users/6427fe85dab74de19ff58d67/sensors

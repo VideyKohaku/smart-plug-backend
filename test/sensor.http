@@ -3,9 +3,10 @@ POST {{host}}/sensors
 content-type: application/json
 
 {
-  "name": "heat 3",
-  "user": "6427fe85dab74de19ff58d67",
-  "type_sensor": "Heat"
+  "name": "Humidity 3",
+  "user": "6427fe93dab74de19ff58d6a",
+  "type_value": "analog",
+  "type_sensor": "Humidity"
 }
 
 ### get all sensors

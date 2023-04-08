@@ -17,6 +17,7 @@ class SensorController{
     }
 
     static async getAllSensorByUser(req, res){
+        // console.log(req.params)
         new OK({
             message: "Sensors",
             metadata: await SensorService.getSensorsbyUser(req.params),
