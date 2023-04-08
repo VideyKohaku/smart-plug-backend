@@ -8,6 +8,20 @@ class SensorController{
             metadata: await SensorService.addSensor(req.body),
         }).send(res)
     }
+
+    static async getAllSensor(req, res){
+        new OK({
+            message: "Sensors",
+            metadata: await SensorService.getAllSensors(),
+        }).send(res)
+    }
+
+    static async getAllSensorByUser(req, res){
+        new OK({
+            message: "Sensors",
+            metadata: await SensorService.getSensorsbyUser(req.params),
+        }).send(res)
+    }
 }
 
 module.exports = SensorController;

@@ -1,0 +1,5 @@
+### get all users
+GET {{host}}/users
+
+### get all users
+# GET {{host}}
