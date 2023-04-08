@@ -16,6 +16,12 @@ class DeviceController {
     }).send(res);
   }
 
+  static async getAllDevicesByUser(req, res){
+    new OK({
+      message: 'Devices',
+      metadata: await DeviceService.getAllDevicesByUser(req.params)
+    }).send(res);
+  }
 
   static async getDevice(req, res){
     new OK({

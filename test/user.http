@@ -1,0 +1,14 @@
+### get all users
+GET {{host}}/users
+
+### get all sensors by user
+GET {{host}}/users/6427fe93dab74de19ff58d6a/sensors
+
+### get all scenarios by user
+GET {{host}}/users/6427fe85dab74de19ff58d67/scenarios
+
+### get all devices by user
+GET {{host}}/users/6427fe85dab74de19ff58d67/devices
+
+### get all automations by user
+GET {{host}}/users/6427fe85dab74de19ff58d67/automations

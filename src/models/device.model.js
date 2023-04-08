@@ -32,4 +32,5 @@ deviceSchema.virtual('topic').get(function () {
 });
 
 //Export the model
-module.exports = mongoose.model(MODEL_NAME, deviceSchema);
+const Device = mongoose.model(MODEL_NAME, deviceSchema);
+module.exports = Device

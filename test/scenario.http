@@ -3,11 +3,11 @@ POST http://localhost:3052/api/scenarios
 content-type: application/json
 
 {
-  "name": "Bed room 2",
-  "user": "6424098a5f99781de15141eb",
+  "name": "Good night",
+  "user": "6427fe85dab74de19ff58d67",
   "actions": [
     {
-      "device": "642839b9ade25844601f4ee2",
+      "device": "6428028f8341127c6d280f7e",
       "state": true
     }
   ] 
