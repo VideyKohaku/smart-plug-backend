@@ -1,0 +1,49 @@
+[{
+  "_id": {
+    "$oid": "6431b94bced657cb83f9a177"
+  },
+  "name": "Bedroom's Conditioner",
+  "state": true,
+  "user": {
+    "$oid": "6431a4097e267491996e9524"
+  },
+  "createdAt": {
+    "$date": "2023-04-07T07:13:17.586Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-07T07:13:17.586Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6431ba10ced657cb83f9a178"
+  },
+  "name": "Bathroom Lights",
+  "state": false,
+  "user": {
+    "$oid": "6431a4097e267491996e9524"
+  },
+  "createdAt": {
+    "$date": "2023-04-07T07:13:17.586Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-07T07:13:17.586Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6431bbbd90cc476325208548"
+  },
+  "name": "Living room's Speakers",
+  "state": true,
+  "user": {
+    "$oid": "6431a4097e267491996e9524"
+  },
+  "createdAt": {
+    "$date": "2023-04-07T07:13:17.586Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-07T07:13:17.586Z"
+  },
+  "__v": 0
+}]

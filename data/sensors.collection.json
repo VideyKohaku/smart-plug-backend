@@ -1,0 +1,91 @@
+[{
+  "_id": {
+    "$oid": "6431c960eb51a830cf6c9ebe"
+  },
+  "name": "Temp Sensor in living room",
+  "user": {
+    "$oid": "6431a4097e267491996e9524"
+  },
+  "type_value": "analog",
+  "type_sensor": "Heat",
+  "value": "0",
+  "createdAt": {
+    "$date": "2023-04-08T20:06:56.509Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-08T20:06:56.509Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6431c98390cc476325208551"
+  },
+  "name": "Humid Sensor in Garden",
+  "user": {
+    "$oid": "6431a4097e267491996e9524"
+  },
+  "type_value": "analog",
+  "type_sensor": "Humidity",
+  "value": "0",
+  "createdAt": {
+    "$date": "2023-04-08T20:06:56.509Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-08T20:06:56.509Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6431c9cbeb51a830cf6c9ec2"
+  },
+  "name": "Light Sensor in living room",
+  "user": {
+    "$oid": "6431a4097e267491996e9524"
+  },
+  "type_value": "analog",
+  "type_sensor": "Light",
+  "value": "0",
+  "createdAt": {
+    "$date": "2023-04-08T20:08:43.939Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-08T20:08:43.939Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6431ca18eb51a830cf6c9ec6"
+  },
+  "name": "Movement Sensor in front of the door",
+  "user": {
+    "$oid": "6431a4097e267491996e9524"
+  },
+  "type_value": "digital",
+  "type_sensor": "Movement",
+  "value": "0",
+  "createdAt": {
+    "$date": "2023-04-08T20:10:00.602Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-08T20:10:00.602Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6431ca38eb51a830cf6c9eca"
+  },
+  "name": "Sound Sensor in studying room",
+  "user": {
+    "$oid": "6431a4097e267491996e9524"
+  },
+  "type_value": "analog",
+  "type_sensor": "Sound",
+  "value": "0",
+  "createdAt": {
+    "$date": "2023-04-08T20:10:32.298Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-08T20:10:32.298Z"
+  },
+  "__v": 0
+}]
