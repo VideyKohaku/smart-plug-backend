@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const { BadRequestError, NotFoundError } = require('../core/error.reponse');
 const User = require('../models/user.model');
 const { createUserToken } = require('../utils/token.util');
+const adafruitService = require('./adafruit.service');
 
 class AuthService {
   static async register({ name, email, password }) {
@@ -13,6 +14,9 @@ class AuthService {
 
     const passwordHash = await bcrypt.hash(password, 10);
     const newUser = await User.create({ name, email, password: passwordHash });
+
+    // Create user group in adafruit
+    await adafruitService.createGroup(newUser.group)
 
     const userToken = createUserToken({ id: newUser.id, name, email });
     return { id: newUser.id, name, email, token: userToken };
@@ -30,7 +34,7 @@ class AuthService {
     }
 
     const { name, id, group } = user;
-    const userToken = createUserToken({id , name, email });
+    const userToken = createUserToken({ id, name, email });
     return { id, name, email, token: userToken, group };
   }
 }

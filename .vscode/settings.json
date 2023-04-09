@@ -1,7 +1,8 @@
 {
   "rest-client.environmentVariables": {
     "$shared": {
-      "host1": "http://localhost:3052/api"
+      "host1": "http://localhost:3052/api",
+      "access_token": ""
     },
     "local": {
       "host": "http://localhost:3052/api"

@@ -11,11 +11,14 @@ const dev = {
   },
   jwt: {
     secret_key: process.env.DEV_JWT_SECRET_KEY || 'secret_key',
-    expires_in: process.env.DEV_JWT_EXPIRES_IN || '7d'
+    expires_in: process.env.DEV_JWT_EXPIRES_IN || '7d',
   },
   adafruit: {
-    topic_prefix: process.env.DEV_ADAFRUIT_TOPIC_PREFIX || 'datdev2409/feeds/'
-  }
+    username: process.env.DEV_ADAFRUIT_USERNAME || 'datdev2409',
+    api_key:
+      process.env.DEV_ADAFRUIT_API_KEY || 'aio_NjWx55T6lsCFGbIsSqflpir0cUPK',
+    topic_prefix: process.env.DEV_ADAFRUIT_TOPIC_PREFIX || 'datdev2409/feeds/',
+  },
 };
 
 const pro = {
@@ -31,11 +34,14 @@ const pro = {
   },
   jwt: {
     secret_key: process.env.PRO_JWT_SECRET_KEY || 'secret_key',
-    expires_in: process.env.PRO_JWT_EXPIRES_IN || '7d'
+    expires_in: process.env.PRO_JWT_EXPIRES_IN || '7d',
   },
   adafruit: {
-    topic_prefix: process.env.PRO_ADAFRUIT_TOPIC_PREFIX || 'datdev2409/feeds/'
-  }
+    username: process.env.PRO_ADAFRUIT_USERNAME || 'datdev2409',
+    api_key:
+      process.env.PRO_ADAFRUIT_API_KEY || 'aio_NjWx55T6lsCFGbIsSqflpir0cUPK',
+    topic_prefix: process.env.PRO_ADAFRUIT_TOPIC_PREFIX || 'datdev2409/feeds/',
+  },
 };
 
 const config = { dev, pro };

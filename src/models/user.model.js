@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const adafruitService = require('../services/adafruit.service');
 
 // Declare the Schema of the Mongo model
 const userSchema = new mongoose.Schema(
@@ -22,6 +23,11 @@ const userSchema = new mongoose.Schema(
   }
 );
 
+userSchema.virtual('group').get(function () {
+  const groupName = this.email.split('@')[0];
+  return groupName;
+});
+
 //Export the model
-const User = mongoose.model('User', userSchema)
-module.exports = User
+const User = mongoose.model('User', userSchema);
+module.exports = User;

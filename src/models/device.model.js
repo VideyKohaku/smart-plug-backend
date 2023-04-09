@@ -1,6 +1,4 @@
-const mongoose = require('mongoose'); // Erase if already required
-const configs = require('../configs/app.config');
-// Declare the Schema of the Mongo model
+const mongoose = require('mongoose');
 
 const MODEL_NAME = 'Device';
 const COLLECTION_NAME = 'devices';
@@ -8,29 +6,32 @@ const deviceSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: true,
+      required: true
     },
     state: {
       type: Boolean,
       required: true,
-      default: false,
+      default: false
     },
     user: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
-      required: true,
+      required: true
     },
+    topic: {
+      type: String,
+      required: true,
+      unique: true
+    }
   },
   {
     collection: COLLECTION_NAME,
-    timestamps: true,
+    timestamps: true
   }
 );
 
-deviceSchema.virtual('topic').get(function () {
-  return configs.adafruit.topic_prefix + this.user + this.name;
-});
+deviceSchema.index({ name: 1, user: 1 }, { unique: true });
 
 //Export the model
 const Device = mongoose.model(MODEL_NAME, deviceSchema);
-module.exports = Device
+module.exports = Device;
