@@ -4,7 +4,7 @@ const pickFields = require('../utils/pickFields');
 
 class AutomationService {
     static async _format(automation) {
-        const fields = ["_id", "name", "user"];
+        const fields = ["_id", "name", "user", "action", "time", "repeat"];
         return pickFields(automation, fields);
     }
 
@@ -29,7 +29,9 @@ class AutomationService {
     }
 
     static async getAllAutomationsByUser({userId}) {
-        const automations = await AutomationService._getAutomations({userId});
+        const automations = await AutomationService._getAutomations({user: userId});
+        console.log(automations)
+
         const formatAutomations = await Promise.all(await AutomationService._formatList(automations)) 
         return {
             count: automations.length,
