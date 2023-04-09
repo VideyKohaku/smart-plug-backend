@@ -1,0 +1,29 @@
+[{
+  "_id": {
+    "$oid": "64319da67e267491996e951b"
+  },
+  "name": "Hoang",
+  "email": "hoang@gmail.com",
+  "password": "$2b$10$0PKnaosfwAX9yYgyCgpPbepZvAJt5y5c4Jr4.332Z/L3q2hWBUcM.",
+  "createdAt": {
+    "$date": "2023-04-08T17:00:22.595Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-08T17:00:22.595Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6431a4097e267491996e9524"
+  },
+  "name": "Anna",
+  "email": "anna@gmail.com",
+  "password": "$2b$10$vVettl8BEln96FnmFn9Wy.zKyPEeGhpJtalve1zoL3sFcGbwfFJHe",
+  "createdAt": {
+    "$date": "2023-04-08T17:27:37.109Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-08T17:27:37.109Z"
+  },
+  "__v": 0
+}]

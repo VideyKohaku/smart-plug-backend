@@ -1,0 +1,115 @@
+[{
+  "_id": {
+    "$oid": "6431d4de1002f2c387eda03f"
+  },
+  "name": "Go out",
+  "user": {
+    "$oid": "6431a4097e267491996e9524"
+  },
+  "actions": [
+    {
+      "device": {
+        "$oid": "6431b94bced657cb83f9a177"
+      },
+      "state": false,
+      "_id": {
+        "$oid": "6431d4de1002f2c387eda040"
+      }
+    },
+    {
+      "device": {
+        "$oid": "6431bbbd90cc476325208548"
+      },
+      "state": false,
+      "_id": {
+        "$oid": "6431d4de1002f2c387eda041"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-04-08T20:55:58.722Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-08T20:55:58.722Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6431d54f1002f2c387eda045"
+  },
+  "name": "Morning",
+  "user": {
+    "$oid": "6431a4097e267491996e9524"
+  },
+  "actions": [
+    {
+      "device": {
+        "$oid": "6431ba10ced657cb83f9a178"
+      },
+      "state": true,
+      "_id": {
+        "$oid": "6431d54f1002f2c387eda046"
+      }
+    },
+    {
+      "device": {
+        "$oid": "6431bbbd90cc476325208548"
+      },
+      "state": true,
+      "_id": {
+        "$oid": "6431d54f1002f2c387eda047"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-04-08T20:57:51.560Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-08T20:57:51.560Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6431d5931002f2c387eda04b"
+  },
+  "name": "Go to Sleep",
+  "user": {
+    "$oid": "6431a4097e267491996e9524"
+  },
+  "actions": [
+    {
+      "device": {
+        "$oid": "6431b94bced657cb83f9a177"
+      },
+      "state": false,
+      "_id": {
+        "$oid": "6431d5931002f2c387eda04c"
+      }
+    },
+    {
+      "device": {
+        "$oid": "6431bbbd90cc476325208548"
+      },
+      "state": false,
+      "_id": {
+        "$oid": "6431d5931002f2c387eda04d"
+      }
+    },
+    {
+      "device": {
+        "$oid": "6431bbbd90cc476325208548"
+      },
+      "state": false,
+      "_id": {
+        "$oid": "6431d5931002f2c387eda04e"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-04-08T20:58:59.404Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-08T20:58:59.404Z"
+  },
+  "__v": 0
+}]
