@@ -5,7 +5,7 @@ const pickFields = require('../utils/pickFields');
 
 class DeviceService {
   static async _format(device) {
-    const fields = ['_id', 'name', 'user", "state', 'state'];
+    const fields = ['_id', 'name', "user", "state"];
     return pickFields(device, fields);
   }
 
@@ -39,9 +39,9 @@ class DeviceService {
 
   static async getAllDevices() {
     const devices = await DeviceService._getDevices({});
-    const formatDevices = await Promise.all(
-      await DeviceService._formatList(devices)
-    );
+    // console.log(devices)
+    const formatDevices = await Promise.all( await DeviceService._formatList(devices));
+    // console.log(formatDevices)
     return {
       count: devices.length,
       devices: formatDevices,
@@ -67,7 +67,7 @@ class DeviceService {
       throw new BadRequestError('Device Not Found');
     }
 
-    return device;
+    return await DeviceService._format(device);
   }
 
   static async updateDevice({ deviceId }, update) {

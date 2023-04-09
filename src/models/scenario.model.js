@@ -28,6 +28,10 @@ const scenarioSchema = new mongoose.Schema(
         },
       },
     ],
+    isFavorite: {
+      type: Boolean,
+      default: false
+    }
   },
   {
     timestamps: true,
