@@ -16,7 +16,7 @@ const dev = {
   adafruit: {
     username: process.env.DEV_ADAFRUIT_USERNAME || 'datdev2409',
     api_key:
-      process.env.DEV_ADAFRUIT_API_KEY || 'aio_MHZG09ksufVFAhWCz5E0nV4Iznyh',
+      process.env.DEV_ADAFRUIT_API_KEY || 'aio_NjWx55T6lsCFGbIsSqflpir0cUPK',
     topic_prefix: process.env.DEV_ADAFRUIT_TOPIC_PREFIX || 'datdev2409/feeds/',
   },
 };
@@ -39,7 +39,7 @@ const pro = {
   adafruit: {
     username: process.env.PRO_ADAFRUIT_USERNAME || 'datdev2409',
     api_key:
-      process.env.PRO_ADAFRUIT_API_KEY || 'aio_MHZG09ksufVFAhWCz5E0nV4Iznyh',
+      process.env.PRO_ADAFRUIT_API_KEY || 'aio_NjWx55T6lsCFGbIsSqflpir0cUPK',
     topic_prefix: process.env.PRO_ADAFRUIT_TOPIC_PREFIX || 'datdev2409/feeds/',
   },
 };
