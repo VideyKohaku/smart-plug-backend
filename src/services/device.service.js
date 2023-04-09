@@ -80,7 +80,7 @@ class DeviceService {
     };
 
     const newDevice = await Device.findByIdAndUpdate(deviceId, update, option);
-    return DeviceService.format(newDevice);
+    return DeviceService._format(newDevice);
   }
 
   static async removeDevice({ deviceId }) {

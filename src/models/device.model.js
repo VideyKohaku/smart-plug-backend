@@ -1,6 +1,4 @@
 const mongoose = require('mongoose');
-const adafruitService = require('../services/adafruit.service');
-const User = require('./user.model');
 
 const MODEL_NAME = 'Device';
 const COLLECTION_NAME = 'devices';
@@ -32,8 +30,8 @@ const deviceSchema = new mongoose.Schema(
   }
 );
 
-deviceSchema.index({ name: 1, user: 1 });
+deviceSchema.index({ name: 1, user: 1 }, { unique: true });
 
 //Export the model
 const Device = mongoose.model(MODEL_NAME, deviceSchema);
-module.exports = Device
+module.exports = Device;

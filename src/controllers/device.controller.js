@@ -19,14 +19,15 @@ class DeviceController {
     }).send(res);
   }
 
-  static async getAllDevicesByUser(req, res){
+  static async getAllDevicesByUser(req, res) {
+    const userId = req.user ? req.user.id : req.params.userId;
     new OK({
-      message: 'Devices',
-      metadata: await DeviceService.getAllDevicesByUser(req.params)
+      message: 'Get devices successfully',
+      metadata: await DeviceService.getAllDevicesByUser({ userId })
     }).send(res);
   }
 
-  static async getDevice(req, res){
+  static async getDevice(req, res) {
     new OK({
       message: 'Device Found',
       metadata: await DeviceService.getDevice(req.params)
