@@ -6,7 +6,7 @@ const pickFields = require('../utils/pickFields');
 
 class ScenarioService {
     static async _format(scenario) {
-        const fields = ["_id", "name", "user", "type_value", "type_sensor", "value"];
+        const fields = ["_id", "name", "user", "actions", "isFavorite"];
         return pickFields(scenario, fields);
     }
 
@@ -70,7 +70,7 @@ class ScenarioService {
             throw new BadRequestError('Scenario not Exist');
         }
 
-        return pickFields(scenario, ['name', 'user', 'actions', 'id']);
+        return await ScenarioService._format(scenario);
     }
 
     static async updateScenario({ sceneId }, update) {

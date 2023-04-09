@@ -10,11 +10,12 @@ content-type: application/json
       "device": "6428028f8341127c6d280f7e",
       "state": true
     }
-  ] 
+  ],
+  "isFavorite": false 
 }
 
 ### get scenario
-GET http://localhost:3052/api/scenarios/642bf3be9c4f32cac0bc0395
+GET http://localhost:3052/api/scenarios/642a69e9d0c4decb4e99a098
 
 
 ### get all scenarios
@@ -22,11 +23,12 @@ GET http://localhost:3052/api/scenarios
 
 
 ### update scenario
-PATCH http://localhost:3052/api/scenarios/642bf335062b4943e4b731d1
+PATCH http://localhost:3052/api/scenarios/642a69e9d0c4decb4e99a098
 content-type: application/json
 
 {
-  "name": "Go out"
+  "name": "Go out",
+  "isFavorite": false
 }
 
 ### delete scenario
