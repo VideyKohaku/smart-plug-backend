@@ -3,10 +3,10 @@ const { BadRequestError } = require('../core/error.reponse');
 const pickFields = require('../utils/pickFields');
 
 class AutomationService {
-  static async _format(automation) {
-    const fields = ['_id', 'name', 'user'];
-    return pickFields(automation, fields);
-  }
+    static async _format(automation) {
+        const fields = ["_id", "name", "user", "action", "time", "repeat"];
+        return pickFields(automation, fields);
+    }
 
   static async _getAutomations(query) {
     const automations = await Automation.find(query).lean();
@@ -30,18 +30,15 @@ class AutomationService {
     };
   }
 
-  static async getAllAutomationsByUser({ userId }) {
-    const automations = await AutomationService._getAutomations({
-      user: userId,
-    });
-    const formatAutomations = await Promise.all(
-      await AutomationService._formatList(automations)
-    );
-    return {
-      count: automations.length,
-      automations: formatAutomations,
-    };
-  }
+    static async getAllAutomationsByUser({userId}) {
+        const automations = await AutomationService._getAutomations({user: userId});
+        const formatAutomations = await Promise.all(await AutomationService._formatList(automations)) 
+        return {
+            count: automations.length,
+            automations: formatAutomations
+        };
+    }
+
 
   static async getAutomation(id) {
     const automation = await Automation.findById(id);

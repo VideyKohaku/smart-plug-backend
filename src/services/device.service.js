@@ -5,7 +5,7 @@ const pickFields = require('../utils/pickFields');
 
 class DeviceService {
   static async _format(device) {
-    const fields = ['_id', 'name', 'user', 'state'];
+    const fields = ['_id', 'name', 'user", "state', 'state'];
     return pickFields(device, fields);
   }
 
