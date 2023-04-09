@@ -4,12 +4,23 @@ const pickFields = require('../utils/pickFields');
 const adafruitService = require('./adafruit.service');
 
 class DeviceService {
-  static async format(device) {
-    const fields = ['name', 'user', 'state', 'topic'];
+  static _format(device) {
+    const fields = ['_id', 'name', 'user', 'state'];
     return pickFields(device, fields);
   }
 
-  static async createDevice({ name, user, state, topic }) {
+  static async _getDevices(query) {
+    const devices = await Device.find(query).lean();
+    return devices;
+  }
+
+  static _formatList(devices) {
+    return devices.map((device) => {
+      return DeviceService._format(device);
+    });
+  }
+
+  static async createDevice({ name, user, state }) {
     if (!user) throw new BadRequestError('User does not exists');
 
     // check device name duplicated
@@ -27,14 +38,22 @@ class DeviceService {
     const userGroup = user.email.split('@')[0];
     await adafruitService.createFeedInGroup(topic, userGroup);
 
-    return DeviceService.format(newDevice);
+    return DeviceService._format(newDevice);
   }
 
-  async getAllDevices() {
-    const devices = await Device.find({});
+  static async getAllDevices() {
+    const devices = await DeviceService._getDevices({});
     return {
       count: devices.length,
-      devices: devices.map((device) => DeviceService.format(device))
+      devices: DeviceService._formatList(devices)
+    };
+  }
+
+  static async getAllDevicesByUser({ userId }) {
+    const devices = await DeviceService._getDevices({ user: userId });
+    return {
+      count: devices.length,
+      devices: DeviceService._formatList(devices)
     };
   }
 
@@ -45,8 +64,7 @@ class DeviceService {
       throw new BadRequestError('Device Not Found');
     }
 
-    // console.log(device.user.group)
-    return DeviceService.format(device);
+    return await DeviceService._format(device);
   }
 
   static async updateDevice({ deviceId }, update) {

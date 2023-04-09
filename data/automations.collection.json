@@ -1,0 +1,72 @@
+[{
+  "_id": {
+    "$oid": "6431df00dfdce67fd714e5e7"
+  },
+  "name": "My Automation 1",
+  "user": {
+    "$oid": "6431a4097e267491996e9524"
+  },
+  "actions": [
+    {
+      "device": {
+        "$oid": "6431b94bced657cb83f9a177"
+      },
+      "state": true,
+      "_id": {
+        "$oid": "6431df00dfdce67fd714e5e8"
+      }
+    }
+  ],
+  "time": "5:00",
+  "repeats": [
+    2,
+    4,
+    7
+  ],
+  "createdAt": {
+    "$date": "2023-04-08T21:39:12.601Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-08T21:39:12.601Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6431e0b3dfdce67fd714e5ea"
+  },
+  "name": "2nd Automation",
+  "user": {
+    "$oid": "6431a4097e267491996e9524"
+  },
+  "actions": [
+    {
+      "device": {
+        "$oid": "6431ba10ced657cb83f9a178"
+      },
+      "state": false,
+      "_id": {
+        "$oid": "6431e0b3dfdce67fd714e5eb"
+      }
+    },
+    {
+      "device": {
+        "$oid": "6431bbbd90cc476325208548"
+      },
+      "state": false,
+      "_id": {
+        "$oid": "6431e0b3dfdce67fd714e5ec"
+      }
+    }
+  ],
+  "time": "20:00",
+  "repeats": [
+    3
+  ],
+  "createdAt": {
+    "$date": "2023-04-08T21:46:27.796Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-08T21:46:27.796Z"
+  },
+  "__v": 0
+}]

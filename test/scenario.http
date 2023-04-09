@@ -3,14 +3,15 @@ POST {{host}}/scenarios
 content-type: application/json
 
 {
-  "name": "Bed room 2",
-  "user": "6424098a5f99781de15141eb",
+  "name": "Good night",
+  "user": "6427fe85dab74de19ff58d67",
   "actions": [
     {
-      "device": "642839b9ade25844601f4ee2",
+      "device": "6428028f8341127c6d280f7e",
       "state": true
     }
-  ] 
+  ],
+  "isFavorite": false 
 }
 
 ### get scenario
@@ -26,7 +27,8 @@ PATCH {{host}}/scenarios/642bf335062b4943e4b731d1
 content-type: application/json
 
 {
-  "name": "Go out"
+  "name": "Go out",
+  "isFavorite": false
 }
 
 ### delete scenario

@@ -16,6 +16,13 @@ class ScenarioController {
         }).send(res)
     }
 
+    static async getAllScenariosByUser(req, res){
+        new OK({
+            message: "Scenarios",
+            metadata: await ScenarioService.getAllScenariosByUser(req.params)
+        }).send(res)
+    }
+
     static async getScenario(req, res) {
         new OK({
             message: "Scenario Found",

@@ -35,4 +35,5 @@ const deviceSchema = new mongoose.Schema(
 deviceSchema.index({ name: 1, user: 1 });
 
 //Export the model
-module.exports = mongoose.model(MODEL_NAME, deviceSchema);
+const Device = mongoose.model(MODEL_NAME, deviceSchema);
+module.exports = Device
