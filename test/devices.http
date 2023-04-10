@@ -20,11 +20,11 @@ GET {{host}}/devices/6427ffc40934446e9b370cf1
 GET {{host}}/devices/6428028f8341127c6d280f7e
 
 ### update device
-PATCH {{host}}/devices/64282e65df56c9885a2d6951
+PATCH {{host}}/devices/64319c471827dbe612893c1f
 content-type: application/json
 
 {
-  "name": "fan 3",
+  "name": "AC 3",
   "state": false
 }
 

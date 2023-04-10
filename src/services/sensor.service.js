@@ -66,12 +66,14 @@ class SensorService {
         if (!sensor) {
             throw new BadRequestError("Sensor Not Found")
         }
-
-        const formatSensor = await SensorService._format(sensor);
+        console.log("service: ", sensor)
+        const formatSensor = await SensorService._format(sensor[0]);
+        console.log("service: ", formatSensor)
         return formatSensor;
     }
 
     static async updateSensor({ sensorId }, update) {
+        console.log("sensor Service: ", sensorId);
         // check sensor exists
         const sensor = await SensorService._getSensors({ _id: sensorId})
         if(!sensor){
@@ -87,7 +89,7 @@ class SensorService {
         return await SensorService._format(newSensor);
     }
 
-    static async removeSensor({sensorId}){
+    static async deleteSensor({sensorId}){
         // check sensor exist
         const isSensorExist = await SensorService._getSensors({_id: sensorId});
         if(!isSensorExist){

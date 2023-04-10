@@ -12,3 +12,17 @@ content-type: application/json
 ### get all sensors
 GET {{host}}/sensors
 
+### get sensor by ID
+Get {{host}}/sensors/642fce9701ab71d3c1dd1202
+
+### update sensor
+PATCH {{host}}/sensors/642fc81e6cc3cd44e523dba6
+content-type: application/json
+
+{
+  "name": "Heat sens 10",
+  "value": "10"
+}
+
+### delete sensor
+DELETE {{host}}/sensors/642fc81e6cc3cd44e523dba6
