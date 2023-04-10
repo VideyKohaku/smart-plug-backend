@@ -1,12 +1,13 @@
 # @port = 3040
 
-### add device
+# @name create_device
 POST {{host}}/devices
 content-type: application/json
+Authorization: Bearer {{access_token}}
 
 {
-  "name": "fan 2",
-  "user": "6427fe85dab74de19ff58d67",
+  "name": "light 9",
+  "user": "642fcee2010a2e856a13ae89",
   "state": true
 }
 
@@ -14,7 +15,7 @@ content-type: application/json
 GET {{host}}/devices
 
 ### get device 1
-GET {{host}}/devices/6427ffc40934446e9b370cf1
+GET {{host}}/devices/642fb922355a3a42c81d809d
 
 ### get device 2
 GET {{host}}/devices/6428028f8341127c6d280f7e

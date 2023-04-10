@@ -1,13 +1,12 @@
 @port = 3040
 
-### Register
 # @name register
 POST {{host}}/auth/register
 content-type: application/json
 
 {
-  "name": "Phuoc",
-  "email": "userPhuoc@gmail.com",
+  "name": "Cong Dat",
+  "email": "admin@gmail.com",
   "password": "password"
 }
 
