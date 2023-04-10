@@ -5,42 +5,42 @@ const pickFields = require("../utils/pickFields");
 const { format } = require("morgan");
 const { response } = require("express");
 
-class SensorService{
-    static async _format(sensor){
-        const fields = ["_id", "name", "user", "type_value", "type_sensor", "value"]; 
+class SensorService {
+    static async _format(sensor) {
+        const fields = ["_id", "name", "user", "type_value", "type_sensor", "value"];
         return pickFields(sensor, fields);
     }
 
-    static async _getSensors(query){
+    static async _getSensors(query) {
         const sensors = await Sensor.find(query).lean();
         return sensors
     }
 
-    static async _formatList(sensors){    
+    static async _formatList(sensors) {
         return sensors.map((sensor) => {
             return SensorService._format(sensor)
         });
     }
 
-    static async addSensor({name, user, type_value, type_sensor, value}){
+    static async addSensor({ name, user, type_value, type_sensor, value }) {
         // check User exist
-        const isUserExist = await User.findOne({_id: user}).lean();
-        if(!isUserExist){
+        const isUserExist = await User.findOne({ _id: user }).lean();
+        if (!isUserExist) {
             throw new BadRequestError('User Not Found');
         }
 
         // check name duplicated
-        const sensor = await Sensor.findOne({name, user}).lean();
-        if(sensor){
+        const sensor = await Sensor.findOne({ name, user }).lean();
+        if (sensor) {
             throw new BadRequestError('Name is already existed');
         }
 
-        const newDevice = await Sensor.create({name, user, type_value, type_sensor, value})  
+        const newDevice = await Sensor.create({ name, user, type_value, type_sensor, value })
 
         return SensorService._format(newDevice)
     }
 
-    static async getAllSensors(){
+    static async getAllSensors() {
         const sensors = await SensorService._getSensors({})
         const formatSensors = await Promise.all(await SensorService._formatList(sensors));
 
@@ -50,9 +50,9 @@ class SensorService{
         }
     }
 
-    static async getSensorsbyUser({userId}){
+    static async getSensorsbyUser({ userId }) {
         // console.log(userId)
-        const sensors = await SensorService._getSensors({user: userId})
+        const sensors = await SensorService._getSensors({ user: userId })
         const formatSensors = await Promise.all(await SensorService._formatList(sensors));
 
         return {
@@ -61,7 +61,41 @@ class SensorService{
         }
     }
 
+    static async getSensor({ sensorId }) {
+        const sensor = await SensorService._getSensors({ _id: sensorId });
+        if (!sensor) {
+            throw new BadRequestError("Sensor Not Found")
+        }
 
+        const formatSensor = await SensorService._format(sensor);
+        return formatSensor;
+    }
+
+    static async updateSensor({ sensorId }, update) {
+        // check sensor exists
+        const sensor = await SensorService._getSensors({ _id: sensorId})
+        if(!sensor){
+            throw new BadRequestError("Sensor Not Found")
+        }
+
+        const option = {
+            new: true,
+            lean: true,
+        };
+
+        const newSensor = await Sensor.findByIdAndUpdate(sensorId, update, option);
+        return await SensorService._format(newSensor);
+    }
+
+    static async removeSensor({sensorId}){
+        // check sensor exist
+        const isSensorExist = await SensorService._getSensors({_id: sensorId});
+        if(!isSensorExist){
+            throw new BadRequestError("Sensor Not Found");
+        }
+
+        return await Sensor.deleteOne({_id: sensorId});
+    }
 }
 
 module.exports = SensorService

@@ -71,7 +71,7 @@ class DeviceService {
   }
 
   static async updateDevice({ deviceId }, update) {
-    // check device exist
+    // check device exists
     const device = await Device.findOne({ _id: deviceId }).lean();
     if (!device) {
       throw new BadRequestError('Device Not Found');
@@ -83,17 +83,17 @@ class DeviceService {
     };
 
     const newDevice = await Device.findByIdAndUpdate(deviceId, update, option);
-    return newDevice;
+    return await DeviceService._format(newDevice);
   }
 
   static async removeDevice({ deviceId }) {
-    // check device name exist
+    // check device exist
     const isDeviceExist = await Device.findOne({ _id: deviceId }).lean();
     if (!isDeviceExist) {
       throw new BadRequestError('Device Not Found');
     }
 
-    return await Device.deleteOne({ _id: deviceId });
+    return await Device.deleteOne({ _id: deviceId});
   }
 }
 
