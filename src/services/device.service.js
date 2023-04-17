@@ -20,7 +20,7 @@ class DeviceService {
     });
   }
 
-  static async createDevice({ name, user, state }) {
+  static async createDevice({ name, user, state, topic }) {
     if (!user) throw new BadRequestError('User does not exists');
 
     // check device name duplicated
