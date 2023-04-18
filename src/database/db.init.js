@@ -3,8 +3,7 @@ const {
   db: { host, name, port, user, password },
 } = require('../configs/app.config');
 
-const connectString = `mongodb://${user}:${password}@${host}:${port}/`;
-
+const connectString = `mongodb://${user}:${password}@${host}:${port}/`
 class Database {
   static #instance;
 
