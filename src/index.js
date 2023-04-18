@@ -18,7 +18,6 @@ app.use(express.urlencoded({ extended: true }));
 
 // database
 const db = require('./database/db.init');
-const AdafruitService = require('./services/adafruit.service');
 db.connect();
 
 // routes
