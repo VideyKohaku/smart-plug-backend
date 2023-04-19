@@ -8,47 +8,49 @@ const automation = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: true,
+      required: true
     },
     user: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
-      required: true,
+      required: true
     },
     actions: [
       {
         device: {
           type: mongoose.Schema.Types.ObjectId,
           ref: 'Device',
-          required: true,
+          required: true
         },
         state: {
           type: Boolean,
-          default: false,
-        },
-      },
+          default: false
+        }
+      }
     ],
     time: {
       type: String,
       required: true,
-      default: '12:00',
+      default: '12:00'
     },
     repeats: {
       type: [
         {
           type: Number,
           required: true,
-          enum: [1, 2, 3, 4, 5, 6, 7],
-        },
+          enum: [1, 2, 3, 4, 5, 6, 7]
+        }
       ],
-      default: [],
-    },
+      default: []
+    }
   },
   {
     timestamps: true,
-    collection: COLLECTION_NAME,
+    collection: COLLECTION_NAME
   }
 );
+
+automation.index({ name: 1, user: 1 }, { unique: true });
 
 //Export the model
 module.exports = mongoose.model(DOCUMENT_NAME, automation);

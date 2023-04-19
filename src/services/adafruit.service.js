@@ -24,7 +24,6 @@ class AdafruitService {
     const isGroupExist = await this.getGroup(group_name);
     if (isGroupExist) return;
 
-    console.log("create group")
     const endpoint = `/api/v2/${this.username}/groups`;
     await this.instance.post(endpoint, { group: { name: group_name } });
   }
