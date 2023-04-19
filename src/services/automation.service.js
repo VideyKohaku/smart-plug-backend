@@ -3,8 +3,9 @@ const { BadRequestError } = require('../core/error.reponse');
 const pickFields = require('../utils/pickFields');
 
 class AutomationService {
-  static async _format(automation) {
-    const fields = ['_id', 'name', 'user', 'actions', 'time', 'repeat'];
+  static _format(automation) {
+    // const fields = ['_id', 'name', 'user', 'actions', 'time', 'repeat'];
+    const fields = ['_id', 'name'];
     return pickFields(automation, fields);
   }
 
@@ -13,17 +14,21 @@ class AutomationService {
     return automations;
   }
 
-  static async _formatList(automations) {
-    return automations.map((automation) => {
+  static _formatList(automations) {
+    const formated = automations.map((automation) => {
       return AutomationService._format(automation);
     });
+    console.log(formated);
+    return formated;
   }
 
   static async getAllAutomations({ user }) {
     const automations = await Automation.find({ user: user.id });
+    console.log(automations);
     return {
       count: automations.length,
       automations: AutomationService._formatList(automations)
+      // automations: automations
     };
   }
 
@@ -41,8 +46,10 @@ class AutomationService {
   }
 
   static async getAutomation(id) {
-    const automation = await Automation.findById(id);
-    console.log(automation);
+    const automation = await Automation.findById(id).populate({
+      path: 'actions',
+      populate: { path: 'device', select: 'name topic _id' }
+    });
     if (!automation) {
       throw new BadRequestError("Automation's ID not found");
     }
