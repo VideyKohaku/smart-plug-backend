@@ -2,7 +2,6 @@ const Device = require('../models/device.model');
 const { BadRequestError } = require('../core/error.reponse');
 const pickFields = require('../utils/pickFields');
 const adafruitService = require('./adafruit.service');
-const { default: mongoose } = require('mongoose');
 
 class DeviceService {
   static _format(device) {
@@ -28,12 +27,9 @@ class DeviceService {
     const device = await Device.findOne({ name, id: user.id }).lean();
     if (device) throw new BadRequestError('Name is already existed');
 
-    // adafruit setup (topic name and feed name)
-    const userGroup = user.email.split('@')[0];
-
     const [newDevice, adafruitRes] = await Promise.all([
       Device.create({ name, state, topic, user: user.id }),
-      adafruitService.createFeedInGroup(topic, userGroup)
+      adafruitService.createFeed(topic)
     ]);
 
     return DeviceService._format(newDevice);
