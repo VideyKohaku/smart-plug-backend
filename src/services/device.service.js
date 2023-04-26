@@ -9,9 +9,25 @@ class DeviceService {
     return pickFields(device, fields);
   }
 
+  static async _getCurrentStateDevice(device) {
+    try {
+      const data = await adafruitService.getLatestFeedData(device.topic);
+      return data === '1' ? true : false;
+    }
+    catch (err) {
+      return false
+    }
+  }
+
   static async _getDevices(query) {
     const devices = await Device.find(query);
-    return devices;
+    return await Promise.all(
+      devices.map(async (device) => {
+        // console.log(device)
+        const state = await DeviceService._getCurrentStateDevice(device);
+        return { ...device.toObject(), state };
+      })
+    );
   }
 
   static _formatList(devices) {
