@@ -35,6 +35,13 @@ class AdafruitService {
     const endpoint = `/api/v2/${this.username}/groups/${group_name}/feeds`;
     await this.instance.post(endpoint, { feed: { name: feed_name } });
   }
+
+  async createFeed(feed_name) {
+    const endpoint = `/api/v2/${this.username}/feeds`;
+    await this.instance.post(endpoint, {
+      feed: { name: feed_name }
+    });
+  }
 }
 
 const adafruitService = new AdafruitService(
@@ -42,6 +49,4 @@ const adafruitService = new AdafruitService(
   adafruit.api_key
 );
 
-console.log(Object.keys(adafruitService))
-// adafruitService.createFeedInGroup("button", "dat124");
 module.exports = adafruitService;
