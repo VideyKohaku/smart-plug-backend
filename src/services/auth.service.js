@@ -15,9 +15,6 @@ class AuthService {
     const passwordHash = await bcrypt.hash(password, 10);
     const newUser = await User.create({ name, email, password: passwordHash });
 
-    // Create user group in adafruit
-    await adafruitService.createGroup(newUser.group)
-
     const userToken = createUserToken({ id: newUser.id, name, email });
     return { id: newUser.id, name, email, token: userToken };
   }
