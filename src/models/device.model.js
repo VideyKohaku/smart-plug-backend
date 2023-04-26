@@ -21,12 +21,15 @@ const deviceSchema = new mongoose.Schema(
     topic: {
       type: String,
       required: true,
-      unique: true
+      unique: true,
+      get: (t) => t.toLowerCase().replace('.', '-dot-')
     }
   },
   {
     collection: COLLECTION_NAME,
-    timestamps: true
+    timestamps: true,
+    toJSON: { getters: true },
+    toObject: { getters: true }
   }
 );
 

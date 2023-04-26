@@ -42,6 +42,12 @@ class AdafruitService {
       feed: { name: feed_name }
     });
   }
+
+  async getLatestFeedData(feed_name) {
+    const endpoint = `/api/v2/${this.username}/feeds/${feed_name}/data/last`
+    const res = await this.instance.get(endpoint)
+    return res.data.value
+  }
 }
 
 const adafruitService = new AdafruitService(
@@ -49,4 +55,6 @@ const adafruitService = new AdafruitService(
   adafruit.api_key
 );
 
+adafruitService.getLatestFeedData('m12345-dot-1')
+  .then(console.log)
 module.exports = adafruitService;
