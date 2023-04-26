@@ -10,7 +10,7 @@ class DeviceService {
   }
 
   static async _getDevices(query) {
-    const devices = await Device.find(query).lean();
+    const devices = await Device.find(query);
     return devices;
   }
 
