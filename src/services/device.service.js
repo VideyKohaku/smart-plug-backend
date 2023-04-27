@@ -40,7 +40,7 @@ class DeviceService {
     if (!user) throw new BadRequestError('User does not exists');
 
     // check device name duplicated
-    const device = await Device.findOne({ name, id: user.id }).lean();
+    const device = await Device.findOne({ name, user: user.id }).lean();
     if (device) throw new BadRequestError('Name is already existed');
 
     const [newDevice, adafruitRes] = await Promise.all([
