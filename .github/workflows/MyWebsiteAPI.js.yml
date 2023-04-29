@@ -16,7 +16,7 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-    - run:
+    - run: |
         npm install
         pm2 stop all
         NODE_PORT=3000 pm2 start server.js
