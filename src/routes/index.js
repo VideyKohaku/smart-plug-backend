@@ -9,7 +9,7 @@ router.use('/api/scenarios', require('./scenario.route'));
 router.use('/api/automations', require('./automation.route'))
 
 router.get('/', (req, res, next) => {
-  res.json({ message: 'Welcome to SmartPlug' });
+  res.json({ message: 'Welcome to SmartPlug API' });
 });
 
 
