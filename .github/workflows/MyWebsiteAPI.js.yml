@@ -19,6 +19,6 @@ jobs:
     - run:
         npm install
         pm2 stop all
-        NODE_PORT 3000 pm2 start server.js
+        NODE_PORT=3000 pm2 start server.js
         pm2 save
         sudo service nginx restart
