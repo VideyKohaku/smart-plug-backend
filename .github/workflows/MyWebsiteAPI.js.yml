@@ -1,4 +1,4 @@
-name: MyWebsiteAPI.js CI
+name: Node.js CI
 
 on:
   push:
