@@ -18,7 +18,6 @@ class SensorController {
   }
 
   static async getAllSensorByUser(req, res) {
-    // console.log(req.params)
     const userId = req.user ? req.user.id : req.params.userId;
     new OK({
       message: 'Sensors',

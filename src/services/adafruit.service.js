@@ -55,6 +55,4 @@ const adafruitService = new AdafruitService(
   adafruit.api_key
 );
 
-adafruitService.getLatestFeedData('m12345-dot-1')
-  .then(console.log)
 module.exports = adafruitService;
