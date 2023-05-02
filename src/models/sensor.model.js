@@ -8,27 +8,22 @@ const sensorSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: true,
+      required: true
     },
     user: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
-      ref: "User",
-    },
-    type_value: {
-      type: String,
-      required: true,
-      enum: ["analog", "digital"],
+      ref: 'User'
     },
     type_sensor: {
       type: String,
       require: true,
-      enum: ["Heat", "Movement", "Humidity", "Sound", "Light"]
+      default: 'unknown'
     },
-    value:  {
+    value: {
       type: String,
-      default: "0"
-    }, 
+      default: '0'
+    },
     topic: {
       type: String,
       required: true,
@@ -46,4 +41,4 @@ const sensorSchema = new mongoose.Schema(
 
 //Export the model
 const Sensor = mongoose.model(MODEL_NAME, sensorSchema);
-module.exports = Sensor
+module.exports = Sensor;

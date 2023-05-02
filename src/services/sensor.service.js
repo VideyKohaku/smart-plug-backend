@@ -8,15 +8,7 @@ const adafruitService = require('./adafruit.service');
 
 class SensorService {
   static async _format(sensor) {
-    const fields = [
-      '_id',
-      'name',
-      'user',
-      'type_value',
-      'type_sensor',
-      'value',
-      'topic'
-    ];
+    const fields = ['_id', 'name', 'user', 'type_sensor', 'value', 'topic'];
     return pickFields(sensor, fields);
   }
 
@@ -47,14 +39,7 @@ class SensorService {
     });
   }
 
-  static async addSensor({
-    name,
-    user,
-    type_value,
-    type_sensor,
-    value,
-    topic
-  }) {
+  static async addSensor({ name, user, type_sensor, value, topic }) {
     if (!user) throw new BadRequestError('User does not exists');
 
     // check name duplicated
@@ -67,7 +52,6 @@ class SensorService {
         value,
         topic,
         user: user.id,
-        type_value,
         type_sensor
       }),
       adafruitService.createFeed(topic)
