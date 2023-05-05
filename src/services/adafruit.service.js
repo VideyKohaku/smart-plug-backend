@@ -66,7 +66,4 @@ const adafruitService = new AdafruitService(
   adafruit.api_key
 );
 
-setInterval(() => {
-  adafruitService.sendData('m1-dot-1', Math.floor(Math.random() * 20));
-}, 1000);
 module.exports = adafruitService;
