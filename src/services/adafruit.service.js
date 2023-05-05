@@ -59,6 +59,8 @@ class AdafruitService {
       console.log(err);
     }
   }
+
+  
 }
 
 const adafruitService = new AdafruitService(

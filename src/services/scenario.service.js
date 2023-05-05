@@ -3,6 +3,7 @@ const Device = require('../models/device.model');
 const Scenario = require('../models/scenario.model');
 const { BadRequestError } = require('../core/error.reponse');
 const pickFields = require('../utils/pickFields');
+const adafruitService = require('../services/adafruit.service');
 
 class ScenarioService {
   static async _format(scenario) {
@@ -11,7 +12,13 @@ class ScenarioService {
   }
 
   static async _getScenario(query) {
-    const scenarios = await Scenario.find(query);
+    const scenarios = await Scenario.find(query).populate({
+      path:"actions",
+      populate: {
+        path: "device",
+        select: "name topic _id"
+      }
+    });
     return scenarios;
   }
 
@@ -106,6 +113,17 @@ class ScenarioService {
     }
 
     return await Scenario.deleteOne({ _id: sceneId });
+  }
+
+  static async activateScenario({sceneId}){
+    const scenario = await ScenarioService.getScenario({sceneId});
+    try{
+      await Promise.all(scenario.actions.map(({device, state})=>{
+          return adafruitService.sendData(device.topic, state? "1": "0");
+      }))
+    }catch (error){
+      throw new BadRequestError("Activate scenario failed");
+    }
   }
 }
 
