@@ -10,5 +10,6 @@ router.get('/', asyncHandler(ScenarioController.getAllScenarios))
 router.get('/:sceneId', asyncHandler(ScenarioController.getScenario))
 router.patch('/:sceneId', asyncHandler(ScenarioController.updateScenario))
 router.delete('/:sceneId', asyncHandler(ScenarioController.removeScenario))
+router.get('./:sceneId/activate', asyncHandler(ScenarioController.activateScenario))
 
 module.exports = router;

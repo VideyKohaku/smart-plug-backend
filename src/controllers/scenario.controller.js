@@ -1,6 +1,7 @@
 const { BadRequestError, NotFoundError } = require('../core/error.reponse');
 const { CREATED, OK, DELETED } = require('../core/success.response');
 const ScenarioService = require('../services/scenario.service');
+const adafruitService = require('../services/adafruit.service');
 
 class ScenarioController {
   static async createScenario(req, res) {
@@ -26,12 +27,14 @@ class ScenarioController {
     }).send(res);
   }
 
+
   static async getScenario(req, res) {
     new OK({
       message: 'Scenario Found',
       metadata: await ScenarioService.getScenario(req.params)
     }).send(res);
   }
+
 
   static async updateScenario(req, res) {
     new OK({
@@ -40,10 +43,18 @@ class ScenarioController {
     }).send(res);
   }
 
+
   static async removeScenario(req, res) {
     new DELETED({
       message: 'Scenario Removed',
       metadata: await ScenarioService.deleteScenario(req.params)
+    }).send(res);
+  }
+
+  static async activateScenario(req, res){
+    new OK({
+      message: "Scenario is sent to Adafruit",
+      metadata: await ScenarioService.activateScenario(req.params)
     }).send(res);
   }
 }
