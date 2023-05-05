@@ -53,7 +53,7 @@ class ScenarioController {
 
   static async activateScenario(req, res){
     new OK({
-      message: "Scenario is sent to Adafruit",
+      message: "Scenario is activated",
       metadata: await ScenarioService.activateScenario(req.params)
     }).send(res);
   }

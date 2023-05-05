@@ -117,7 +117,6 @@ class ScenarioService {
 
   static async activateScenario({sceneId}){
     const scenario = await ScenarioService.getScenario({sceneId});
-    
     try{
       await Promise.all(scenario.actions.map(({device, state})=>{
           return adafruitService.sendData(device.topic, state? "1": "0");
