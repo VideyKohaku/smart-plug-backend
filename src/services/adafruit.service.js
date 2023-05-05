@@ -44,9 +44,20 @@ class AdafruitService {
   }
 
   async getLatestFeedData(feed_name) {
-    const endpoint = `/api/v2/${this.username}/feeds/${feed_name}/data/last`
-    const res = await this.instance.get(endpoint)
-    return res.data.value
+    const endpoint = `/api/v2/${this.username}/feeds/${feed_name}/data/last`;
+    const res = await this.instance.get(endpoint);
+    return res.data.value;
+  }
+
+  async sendData(feed_name, data) {
+    const endpoint = `/api/v2/${this.username}/feeds/${feed_name}/data`;
+    try {
+      const res = await this.instance.post(endpoint, {
+        value: data
+      });
+    } catch (err) {
+      console.log(err);
+    }
   }
 }
 
@@ -55,4 +66,7 @@ const adafruitService = new AdafruitService(
   adafruit.api_key
 );
 
+setInterval(() => {
+  adafruitService.sendData('m1-dot-1', Math.floor(Math.random() * 20));
+}, 1000);
 module.exports = adafruitService;

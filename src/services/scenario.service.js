@@ -11,7 +11,7 @@ class ScenarioService {
   }
 
   static async _getScenario(query) {
-    const scenarios = await Scenario.find(query).lean();
+    const scenarios = await Scenario.find(query);
     return scenarios;
   }
 
@@ -78,8 +78,6 @@ class ScenarioService {
   }
 
   static async updateScenario({ sceneId }, update) {
-    console.log(sceneId);
-    // check scene exist
     const scenario = await Scenario.findById(sceneId).lean();
     console.log(sceneId);
     if (!scenario) {
