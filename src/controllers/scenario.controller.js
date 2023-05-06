@@ -21,9 +21,10 @@ class ScenarioController {
   }
 
   static async getAllScenariosByUser(req, res) {
+    const userId = req.user ? req.user.id : req.params.userId;
     new OK({
       message: 'Scenarios',
-      metadata: await ScenarioService.getAllScenariosByUser(req.params)
+      metadata: await ScenarioService.getAllScenariosByUser({ userId })
     }).send(res);
   }
 

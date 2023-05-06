@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.use(protect)
 router.post('/', asyncHandler(ScenarioController.createScenario))
-router.get('/', asyncHandler(ScenarioController.getAllScenarios))
+router.get('/', asyncHandler(ScenarioController.getAllScenariosByUser))
 router.get('/:sceneId', asyncHandler(ScenarioController.getScenario))
 router.patch('/:sceneId', asyncHandler(ScenarioController.updateScenario))
 router.delete('/:sceneId', asyncHandler(ScenarioController.removeScenario))
