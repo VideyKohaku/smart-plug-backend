@@ -20,9 +20,10 @@ class ScenarioController {
   }
 
   static async getAllScenariosByUser(req, res) {
+    const userId = req.user ? req.user.id : req.params.userId;
     new OK({
       message: 'Scenarios',
-      metadata: await ScenarioService.getAllScenariosByUser(req.params)
+      metadata: await ScenarioService.getAllScenariosByUser({ userId })
     }).send(res);
   }
 
@@ -44,6 +45,13 @@ class ScenarioController {
     new DELETED({
       message: 'Scenario Removed',
       metadata: await ScenarioService.deleteScenario(req.params)
+    }).send(res);
+  }
+
+  static async activateScenario(req, res){
+    new OK({
+      message: "Scenario is activated",
+      metadata: await ScenarioService.activateScenario(req.params)
     }).send(res);
   }
 }
