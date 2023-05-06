@@ -20,7 +20,7 @@ services:
   backend: 
     build: ./  
     ports:
-      - 3052:3052
+      - 3000:3000
     volumes:
       - ./:/app/backend
       - /app/backend/node_modules
