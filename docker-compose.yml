@@ -14,16 +14,24 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: password
       MONGO_INITDB_DATABASE: smartplug_dev
-  
-  mqtt_broker:
-    image: eclipse-mosquitto
-    ports:
-      - 1884:1883
-      - 9002:9001
-    volumes:
-      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf
-      - mqtt_data:/mosquitto/data/
+    networks:
+      - smartplug
 
+  backend: 
+    build: ./  
+    ports:
+      - 3052:3052
+    volumes:
+      - ./:/app/backend
+      - /app/backend/node_modules
+    networks:
+      - smartplug
+    depends_on:
+      - database
+
+
+networks:
+  smartplug:
 
 volumes:
   data:
