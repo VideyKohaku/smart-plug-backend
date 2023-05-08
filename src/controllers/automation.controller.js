@@ -31,6 +31,7 @@ class AutomationController {
   static async createAutomation(req, res) {
     const user = req.user;
     if (!user) throw ForbiddenError('No user found');
+
     new CREATED({
       message: 'Automation is created',
       metadata: await AutomationService.createAutomation({ ...req.body, user })

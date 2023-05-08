@@ -7,7 +7,7 @@ const app = express();
 const dotenv = require('dotenv');
 dotenv.config();
 
-require('./services/adafruit.service')
+require('./services/adafruit.service');
 // middlewares
 app.use(cors());
 app.use(helmet());
@@ -18,7 +18,14 @@ app.use(express.urlencoded({ extended: true }));
 
 // database
 const db = require('./database/db.init');
-db.connect();
+const { scheduleAllAutomations } = require('./services/automation.service');
+
+(async function () {
+  await db.connect();
+
+  // schedule all automations
+  scheduleAllAutomations();
+})();
 
 // routes
 app.use('/', require('./routes'));
@@ -37,7 +44,7 @@ app.use((error, req, res, next) => {
   return res.status(statusCode).json({
     message: error.message || 'Internal Server Error',
     code: statusCode,
-    status: 'error',
+    status: 'error'
   });
 });
 
